@@ -1,0 +1,46 @@
+/* .author-sx {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+} */
+
+.author-img {
+    object-fit: cover !important;
+    width: 90px !important;
+    height: 90px !important;
+    border-radius: 50% !important;
+    align-self: center !important;
+    border: solid 4px green;
+}
+
+.author-card {
+    display: flex !important;
+    flex-direction: row !important;
+    min-height: 13rem !important;
+    border: none !important;
+    box-shadow: 0 0 10px #00000060;
+    transition: .3s;
+    padding-inline-start: 1rem;
+}
+.comment-card {
+    display: flex !important;
+    flex-direction: row !important;
+    height: 12rem !important;
+    border: none !important;
+    box-shadow: 0 0 10px #00000060;
+    transition: .3s;
+    padding-inline-start: 1rem;
+}
+
+.author-card:hover {
+    transform: scale(1.07);
+}
+/* .author-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+button {
+    width: fit-content;
+} */
