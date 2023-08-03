@@ -13,7 +13,7 @@ const Success = () => {
     useEffect(() => {
         if (token) {
             {localStorage.setItem('userLoggedIn', JSON.stringify(token.token))}
-            
+            navigate(`/success/${token}`)
             /* {setTimeout(() => {
                 navigate('/')
             }, 5000)} */
