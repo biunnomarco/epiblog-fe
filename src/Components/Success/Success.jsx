@@ -14,9 +14,9 @@ const Success = () => {
         if (token) {
             {localStorage.setItem('userLoggedIn', JSON.stringify(token.token))}
             navigate(`/success/${token}`)
-            /* {setTimeout(() => {
+            {setTimeout(() => {
                 navigate('/')
-            }, 5000)} */
+            }, 3000)}
         }
     }, [])
     
