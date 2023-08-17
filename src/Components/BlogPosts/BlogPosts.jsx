@@ -58,6 +58,7 @@ const BlogPosts = () => {
                     {allPosts.posts && allPosts.posts.map((post) => {
                         return (
                             <Col className=' d-flex justify-content-center' key={nanoid()}>
+                                {console.log(post)}
                                 <SinglePost post={post} />
 
                             </Col>
