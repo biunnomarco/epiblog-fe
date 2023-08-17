@@ -110,3 +110,27 @@ export const blogPostById = createAsyncThunk('blogPosts/getById', async (id) => 
     }
 
 })
+
+
+export const changeCover = createAsyncThunk('blogPosts/patch', async (patchData) => {
+    console.log(patchData)
+    const form = new FormData()
+    form.append('cover', patchData.cover)
+
+    const res = await fetch(`${endpoint}${patchData.id}/changeCover`, {
+        method: 'PATCH',
+        body: form,
+        headers: {}
+    })
+    const data = await res.json()
+})
+
+export const deletePost = createAsyncThunk('blogPosts/delete', async(id) => {
+    const token = JSON.parse(localStorage.getItem('userLoggedIn'))
+    const delRes = await fetch(`${endpoint}${id}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: token
+        }
+    })
+})

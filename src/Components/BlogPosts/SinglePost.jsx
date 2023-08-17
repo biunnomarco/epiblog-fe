@@ -4,11 +4,23 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import '../BlogPosts/SinglePost.css'
 import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
 import { Link } from 'react-router-dom';
+import { useSession } from '../../middlewares/ProtectedRoutes';
+
+import { BiSolidTrashAlt } from 'react-icons/bi';
+import { useDispatch } from 'react-redux';
+import { deletePost, getBlogPosts } from '../../Store/blogPostsSlice';
 
 const SinglePost = (post) => {
 
   const actualTheme = useSelector(state => state.theme.theme)
-  
+  const session = useSession()
+  const dispatch = useDispatch()
+
+  function removePost(id) {
+    console.log(id)
+    dispatch(deletePost(id)).then(()=> dispatch(getBlogPosts()))
+  }
+
   return (
     <Card
       style={{ width: '20rem', textDecoration: 'none' }}
@@ -27,14 +39,24 @@ const SinglePost = (post) => {
 
       <Card.Footer className='d-flex justify-content-between align-items-center'>
         <Card.Title style={{ fontSize: '.8rem', margin: '0' }}>
-        <img className='mx-1' src={post.post.author.avatar} style={{width: '25px', height: '25px', borderRadius: '50%'}} />
+          <img className='mx-1' src={post.post.author.avatar} style={{ width: '25px', height: '25px', borderRadius: '50%' }} />
           {post.post.author.name} {post.post.author.surname}
         </Card.Title>
         <Card.Text>
 
-        <Link to={`/postDetails/${post.post._id}`}>                  
-          <Button size='sm'>Read all</Button>
-        </Link>
+          <Link to={`/postDetails/${post.post._id}`}>
+            <Button size='sm'>Read all</Button>
+          </Link>
+          {session.role === 'moderator' && (
+            <Button
+              style={{ position: 'absolute', top: '10px', right: '15px' }}
+              variant='danger' size='sm'
+              onClick={() => removePost(post.post._id)}
+            > 
+              <BiSolidTrashAlt />
+            </Button>
+          )}
+
 
         </Card.Text>
       </Card.Footer>
