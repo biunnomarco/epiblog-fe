@@ -36,8 +36,8 @@ const Dashboard = () => {
         <div className={actualTheme ? '' : 'dark-secondary text-light'}>
             {authorInfo && (<Container className='py-4'>
                 <Row className='d-flex align-items-center'>
-                    <Col className='text-center'>
-                        <div style={{ width: '400px', height: '400px', borderRadius: '50%', position: 'relative' }}>
+                    <Col className=' py-3 text-center'>
+                        <div  style={{ width: '400px', height: '400px', borderRadius: '50%', position: 'relative' }}>
 
                             {!modifyAvatar && (<img
                                 style={{ width: '400px', height: '400px', borderRadius: '50%' }}
