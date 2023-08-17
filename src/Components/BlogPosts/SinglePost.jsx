@@ -47,7 +47,7 @@ const SinglePost = (post) => {
           <Link to={`/postDetails/${post.post._id}`}>
             <Button size='sm'>Read all</Button>
           </Link>
-          {session.role === 'moderator' && (
+          {session && session.role === 'moderator' && (
             <Button
               style={{ position: 'absolute', top: '10px', right: '15px' }}
               variant='danger' size='sm'

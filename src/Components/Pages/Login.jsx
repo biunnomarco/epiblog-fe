@@ -6,6 +6,7 @@ import Alert from 'react-bootstrap/Alert';
 import { useNavigate } from "react-router-dom";
 import { GoAlertFill } from 'react-icons/go';
 import { postAuthors } from "../../Store/authorSlice";
+import { Container } from "react-bootstrap";
 
 
 
@@ -36,8 +37,8 @@ const Login = () => {
                     email: registerFormData.email,
                     password: registerFormData.password
                 })))
-                .then(()=> localStorage.getItem('userLoggedIn') ? navigate('/') : '')
-                console.log(registerFormData)
+                .then(() => localStorage.getItem('userLoggedIn') ? navigate('/') : '')
+            console.log(registerFormData)
         } else { console.log("psw errate") }
 
     }
@@ -48,9 +49,10 @@ const Login = () => {
     }
 
     return (
+
         <div className={actualTheme ? " py-5" : "dark-secondary text-light py-5"}>
             <div className="d-flex flex-column justify-content-center align-items-center" >
-                <form style={{ width: '400px' }} onSubmit={onSubmit}>
+                <form style={{ maxWidth: '400px' }} onSubmit={onSubmit}>
                     <h3>Log-In</h3>
                     <div className="mb-3">
                         <label>Email address</label>
@@ -98,12 +100,12 @@ const Login = () => {
                     </p>
                 </form>
                 {logStatus.res && logStatus.res.statusCode === 404 && (
-                    <Alert style={{ width: '400px' }} key="danger" variant="danger">
+                    <Alert style={{ maxWidth: '400px' }} key="danger" variant="danger">
                         Wrong E-mail or Password
                     </Alert>
                 )}
                 {logStatus.res && logStatus.res.statusCode === 400 && (
-                    <Alert style={{ width: '400px' }} key="danger" variant="danger">
+                    <Alert style={{ maxWidth: '400px' }} key="danger" variant="danger">
                         Wrong E-mail or Password
                     </Alert>
                 )}
@@ -118,7 +120,7 @@ const Login = () => {
                     </button>
                 </div>
                 {register && (
-                    <div style={{ width: '400px' }} className="mb-5">
+                    <div style={{ maxWidth: '400px' }} className="mb-5">
                         <form onSubmit={sendRegister}>
                             <div className="mb-3">
                                 <label>Name</label>
@@ -235,6 +237,7 @@ const Login = () => {
 
             </div>
         </div>
+
     )
 }
 
