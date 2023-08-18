@@ -56,9 +56,11 @@ const Dashboard = () => {
                                     <Button onClick={() => saveChanges()} variant='success'>Save changes</Button>
                                 </div>
                             </div>)}
-                            <BsPencilFill
-                                onClick={() => setModifyAvatar(true)}
-                            /* style={{ position: 'absolute', bottom: '50px', right:'150px' }} */ />
+                            <div onClick={() => setModifyAvatar(true)} style={{cursor: 'pointer'}}>
+                                <BsPencilFill />
+                                <em>Change Avatar</em>
+                            </div>
+                            
                         </div>
                     </Col>
                     <Col>
